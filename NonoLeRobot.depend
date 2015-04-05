@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1427705306 source:u:\algo\cppspace\td5\main.c
+	<stdio.h>
+	<stdlib.h>
+	"IO.h"
+
+1427705289 source:u:\algo\cppspace\td5\src\io.c
+	"IO.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1427704317 source:u:\algo\cppspace\td5\src\ex1.c
+	<stdio.h>
+	<stdlib.h>
+	"IO.h"
+
+1427889342 source:u:\algo\cppspace\nonolerobot\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1427792786 source:u:\algo\cppspace\nonolerobot\src\pile.c
+	<stdlib.h>
+	"Pile.h"
+
+1427792760 u:\algo\cppspace\nonolerobot\include\pile.h
+	<stdlib.h>
+
+1427792802 source:u:\algo\cppspace\nonolerobot\src\profondeur.c
+
