@@ -33,9 +33,17 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="include/Profondeur.h" />
-		<Unit filename="include/affichage.h" />
+		<Unit filename="include/Algorithme.h" />
+		<Unit filename="include/File.h" />
+		<Unit filename="include/Pile.h" />
+		<Unit filename="include/position.h" />
 		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/File.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/Largeur.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/Pile.c">
@@ -44,7 +52,7 @@
 		<Unit filename="src/Profondeur.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="src/affichage.c">
+		<Unit filename="src/position.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

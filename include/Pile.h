@@ -1,10 +1,6 @@
 #include <stdlib.h>
 
-#define booleen int
-#define vrai 1
-#define faux 0
 
-/* Il n'est pas possible de mettre un element = à null */
 typedef struct Pile {
     void * element;
     struct Pile * suivant;
@@ -16,6 +12,7 @@ typedef struct Pile {
 Pile init_pile();
 
 /** Permet d'ajouter un element à une pile
+ * ATTENTION, INTERDIT d'ajouter NULL
  * @param p, la pile à ajouter l'element
  * @param element à ajouter
  */
@@ -42,7 +39,7 @@ void * sommet(Pile p);
  * @return la pile inversée
  *         si elle est vide, NULL est renvoyé
  */
-Pile inverser(Pile p);
+Pile * inverser(Pile p);
 
 /** Connaitre la taille d'une pile
  * @param  p, la pile à calculer
@@ -53,7 +50,7 @@ int taille_pile(Pile p);
 
 /** Permet de tester si la pile est vide
  * @param p, la pile à tester
- * @return 1 si la pile n'est pas vide
- *         0 si la pile est vide
+ * @return 1 si la pile est vide
+ *         0 si la pile n'est pas vide
  */
-booleen pile_vide(Pile p);
+int pile_vide(Pile p);

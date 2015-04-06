@@ -1,4 +1,7 @@
 /*
+
+#include "Algorithme.h"
+
 Pile parcours_profondeur() {
 
     Pile chemin;

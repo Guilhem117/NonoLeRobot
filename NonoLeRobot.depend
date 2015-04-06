@@ -4,6 +4,8 @@
 	<stdlib.h>
 	"IO.h"
 
+1427792786 
+
 1427705289 source:u:\algo\cppspace\td5\src\io.c
 	"IO.h"
 	<stdio.h>
@@ -27,4 +29,31 @@
 	<stdlib.h>
 
 1427792802 source:u:\algo\cppspace\nonolerobot\src\profondeur.c
+
+1428277214 source:/media/guilhem/SERENE G/3IL/Algo/CppSpace/NonoLeRobot/main.c
+	"position.h"
+	<stdio.h>
+	<stdlib.h>
+
+1428276989 source:/media/guilhem/SERENE G/3IL/Algo/CppSpace/NonoLeRobot/src/File.c
+	"File.h"
+
+1428276984 /media/guilhem/SERENE G/3IL/Algo/CppSpace/NonoLeRobot/include/File.h
+
+1428277181 source:/media/guilhem/SERENE G/3IL/Algo/CppSpace/NonoLeRobot/src/Pile.c
+	<stdlib.h>
+	"Pile.h"
+
+1428277164 /media/guilhem/SERENE G/3IL/Algo/CppSpace/NonoLeRobot/include/Pile.h
+	<stdlib.h>
+
+1428277193 /media/guilhem/SERENE G/3IL/Algo/CppSpace/NonoLeRobot/include/position.h
+
+1428277254 source:/media/guilhem/SERENE G/3IL/Algo/CppSpace/NonoLeRobot/src/Largeur.c
+
+1428277740 source:/media/guilhem/SERENE G/3IL/Algo/CppSpace/NonoLeRobot/src/position.c
+	"position.h"
+
+1428277246 source:/media/guilhem/SERENE G/3IL/Algo/CppSpace/NonoLeRobot/src/Profondeur.c
+	"Algorithme.h"
 
