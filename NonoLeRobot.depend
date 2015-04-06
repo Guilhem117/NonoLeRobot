@@ -57,3 +57,27 @@
 1428277246 source:/media/guilhem/SERENE G/3IL/Algo/CppSpace/NonoLeRobot/src/Profondeur.c
 	"Algorithme.h"
 
+1428277214 source:/home/guilhem/LocalUSB/3IL/Algo/CppSpace/NonoLeRobot/main.c
+	"position.h"
+	<stdio.h>
+	<stdlib.h>
+
+1428318018 /home/guilhem/LocalUSB/3IL/Algo/CppSpace/NonoLeRobot/include/position.h
+
+1428276989 source:/home/guilhem/LocalUSB/3IL/Algo/CppSpace/NonoLeRobot/src/File.c
+	"File.h"
+
+1428276984 /home/guilhem/LocalUSB/3IL/Algo/CppSpace/NonoLeRobot/include/File.h
+
+1428277254 source:/home/guilhem/LocalUSB/3IL/Algo/CppSpace/NonoLeRobot/src/Largeur.c
+
+1428277181 source:/home/guilhem/LocalUSB/3IL/Algo/CppSpace/NonoLeRobot/src/Pile.c
+	<stdlib.h>
+	"Pile.h"
+
+1428277164 /home/guilhem/LocalUSB/3IL/Algo/CppSpace/NonoLeRobot/include/Pile.h
+	<stdlib.h>
+
+1428277740 source:/home/guilhem/LocalUSB/3IL/Algo/CppSpace/NonoLeRobot/src/position.c
+	"position.h"
+
