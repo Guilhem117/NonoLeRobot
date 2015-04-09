@@ -1,30 +1,32 @@
-#include "position.h"
-#include <stdio.h>
-#include <stdlib.h>
-
-
+#include "Algorithme.h"
 
 void lire_fichier(FILE *f, Problem *p);
 void Affiche_matrice(Problem *p);
 void libere_matrice(Problem *p);
 void lire_coordonnee(FILE *f, Coordonnee *c);
+void afficher_chemin(Pile p);
+
 
 int main() {
     FILE* file;
     file = fopen("map.txt", "r" );
     if(file == NULL) {
         printf("\n Erreur ouverture fichier\n");
-        }
-    else {
+    } else {
         Problem probleme;
+        Pile chemin;
         lire_fichier(file,&probleme);
         Affiche_matrice(&probleme);
-        // la suite est à faire ... là
-        /* BESOIN D'UN FICHIER H? pour pourvoir ecrire les parcours ? */
+
+        //$START NewCode
+        chemin = parcours_profondeur(probleme);
+        afficher_chemin(chemin);
+        //$END NewCode
+
         libere_matrice(&probleme);
-        }
-    return 0;
     }
+    return 0;
+}
 
 void lire_fichier(FILE *f, Problem *p) {
     char c;
@@ -39,7 +41,8 @@ void lire_fichier(FILE *f, Problem *p) {
         exit (1);
         }
     else {
-        for (int i = 0; i < p->nb_ligne; i++) {
+        int i;
+        for (i = 0; i < p->nb_ligne; i++) {
             p->carte[i] = (char*)malloc(sizeof(char)*p->nb_colonne);
             if (p->carte[i]==NULL) {
                 printf("\nallocation impossible, pas assez de mémoire\n");
@@ -47,8 +50,10 @@ void lire_fichier(FILE *f, Problem *p) {
                 }
             }
         }
-    for (int i = 0; i < p->nb_ligne; i++) {
-        for(int j=0; j< p->nb_colonne; j++) {
+    int i;
+    for (i = 0; i < p->nb_ligne; i++) {
+        int j;
+        for(j=0; j< p->nb_colonne; j++) {
             fscanf(f,"%c",&p->carte[i][j]);
             }
         fscanf(f,"%c",&c);  // enlève le \n
@@ -59,9 +64,11 @@ void Affiche_matrice(Problem *p) {
     printf("position de depart : %i;%i\n",p->depart.num_ligne,p->depart.num_col);
     printf("position de arrivee : %i;%i\n",p->arrive.num_ligne,p->arrive.num_col);
     printf("nb_ligne : %i; nb_colonne : %i\n", p->nb_ligne, p->nb_colonne);
-    for (int i = 0; i < p->nb_ligne; i++) {
+    int i;
+    for (i = 0; i < p->nb_ligne; i++) {
         //printf("\nligne %i :\n", i);
-        for (int j = 0; j < p->nb_colonne; j++) {
+        int j;
+        for (j = 0; j < p->nb_colonne; j++) {
             printf("%c",p->carte[i][j]);
             }
         // printf("f\n");
@@ -73,8 +80,19 @@ void lire_coordonnee(FILE *f, Coordonnee *c) {
     }
 
 void libere_matrice(Problem *p){
-    for (int i = 0; i < p->nb_ligne; i++) {
+    int i;
+    for (i = 0; i < p->nb_ligne; i++) {
        free(p->carte[i]);
-        }
-    free(p->carte);
     }
+    free(p->carte);
+}
+
+void afficher_chemin(Pile p) {
+
+    while(!pile_vide(p)) {
+        printf(" (%d/%d) -> ",(*(Coordonnee *)p.element).num_ligne,(*(Coordonnee *)p.element).num_col);
+        retirer_elem(&p);
+    }
+
+}
+

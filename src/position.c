@@ -27,7 +27,8 @@ Coordonnee *pos_suiv(Problem *p, Coordonnee posActuelle) {
 
 
     /* J'initialise tout le tableau des possibilités à -1 (position suivante inacessible)*/
-    for(int i = 0; i < 4; i++) {
+    int i;
+    for(i = 0; i < 4; i++) {
         possibles[i].num_ligne = -1;
         possibles[i].num_col = -1;
     }

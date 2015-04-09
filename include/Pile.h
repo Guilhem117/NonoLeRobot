@@ -1,4 +1,3 @@
-#include <stdlib.h>
 
 
 typedef struct Pile {
@@ -16,16 +15,13 @@ Pile init_pile();
  * @param p, la pile à ajouter l'element
  * @param element à ajouter
  */
-void ajout_elem(Pile p, void * element);
-
+void ajout_elem(Pile* p, void * element);
 
 /** Permet de retirer un element de la pile
- * On ne peut pas enlever un element si c'est
+ * On ne peut pas enlever un element si la pile est vide
  * @param  la pile où il faut enlever le sommet
- * @return element qui a été dépilé
- *         NULL l'element à depiler
  */
-void * retirer_elem(Pile p);
+void retirer_elem(Pile * p);
 
 /** Renvoit le sommet de la pile
  * @param p, la pile contenant l'element

@@ -12,21 +12,23 @@ Pile parcours_profondeur(Problem p) {
     Pile chemin;
     int marques[p.nb_ligne][p.nb_colonne];
     int posSuivant;
-    int i;
+    int i,j;
     Coordonnee * suivants;
 
+    //Intialisation du tableau des marques
     for(i=0; i < (p.nb_ligne); i++) {
-        for (int j=0; j < p.nb_colonne; j++) {
+        for (j=0; j < p.nb_colonne; j++) {
             marques[i][j] =0;
         }
     }
 
     chemin = init_pile();
-    ajout_elem(chemin, &p.depart);
 
-    while (chemin.element != &p.arrive && pile_vide(chemin)) {
-        ajout_elem(chemin, chemin.element);
-        marques[(*(Coordonnee *) chemin.element).num_ligne][(*(Coordonnee *) chemin.element).num_col] = 1;
+    ajout_elem(&chemin,chemin.element);
+
+    while (chemin.element != &p.arrive && !pile_vide(chemin)) {
+        ajout_elem(&chemin, chemin.element);
+        marques[( *(Coordonnee *) chemin.element).num_ligne][(*(Coordonnee *) chemin.element).num_col] = 1;
 
         suivants = pos_suiv(&p, *(Coordonnee *) chemin.element);
         posSuivant = 0; //Permet de savoir si on a tester une case
@@ -45,10 +47,9 @@ Pile parcours_profondeur(Problem p) {
 
         //Il n'y a pas de position suivante donc je recule
         if (!posSuivant) {
-            retirer_elem(chemin);
+            retirer_elem(&chemin);
         }
     }
-
 
     return chemin;
 

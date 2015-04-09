@@ -22,9 +22,8 @@ Pile init_pile() {
  * @param p, la pile à ajouter l'element
  * @param element à ajouter
  */
-void ajout_elem(Pile p, void * element) {
+void ajout_elem(Pile* p, void * element) {
 
-    Pile * aAjouter;
 
     /* On ne peut pas ajouter l'element null */
     if (element == NULL) {
@@ -32,42 +31,40 @@ void ajout_elem(Pile p, void * element) {
     }
 
     //Je rempli l'element actuel qui est null
-    if (pile_vide(p)) {
-        p.element = element;
+    if (pile_vide(*p)) {
+        p->element = element;
 
     //J'ajoute un autre element
     } else {
 
-        aAjouter = (Pile *) malloc(sizeof(Pile));
 
-        aAjouter->element = element;
-        aAjouter->suivant = &p;
+        Pile aAjouter;
+
+        aAjouter.element = p->element;
+        aAjouter.suivant = p;
+        p->element = element;
+        p->suivant = &aAjouter;
 
     }
+
 
 }
 
 /** Permet de retirer un element de la pile
- * On ne peut pas enlever un element si c'est
+ * On ne peut pas enlever un element si la pile est vide
  * @param  la pile où il faut enlever le sommet
- * @return element qui a été dépilé
- *         NULL l'element à depiler
  */
-void * retirer_elem(Pile p) {
+void retirer_elem(Pile * p) {
 
-    void * sommet;
-    sommet = p.element;
-
+    //Pile * tmp = p;
     //C'est le dernier element de la pile, donc je supprime que l'element
-    if (p.suivant == NULL) {
-        p.element = NULL;
+    if (p->suivant == NULL) {
+        p->element = NULL;
     } else {//Sinon, je supprime l'element suivant aussi
-        p.suivant = p.suivant->suivant;
-        p.element = p.suivant->element;
+        p->element = NULL;
+        p = p->suivant;
     }
 
-
-    return sommet;
 }
 
 /** Renvoit le sommet de la pile
@@ -96,9 +93,9 @@ Pile * inverser(Pile p) {
 
     while (!pile_vide(p)) {
 
-        ajout_elem(*inverse, p.element);
+        ajout_elem(inverse, p.element);
 
-        retirer_elem(p);
+        retirer_elem(&p);
 
     }
 
