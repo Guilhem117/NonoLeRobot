@@ -14,18 +14,15 @@ int main() {
         printf("\n Erreur ouverture fichier\n");
     } else {
         Problem probleme;
-        Pile chemin;
+        Pile chemin = init_pile();
+        char * marques;
         lire_fichier(file,&probleme);
         Affiche_matrice(&probleme);
+        afficher_pile_coordonnees(&chemin);
 
-        char *marques;
         ajout_elem(&chemin, &probleme.depart);
         marques = (char *) malloc(probleme.nb_colonne * probleme.nb_ligne * sizeof(char));
         chemin = parcours_profondeur_R(probleme, chemin, marques);
-        afficher_chemin(chemin);
-
-//        chemin = parcours_profondeur(probleme);
-//        afficher_chemin(chemin);
 
         libere_matrice(&probleme);
     }

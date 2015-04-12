@@ -1,8 +1,9 @@
 #include "position.h"
 #include "Pile.h"
 #include "File.h"
+
 int toutMarque(Problem * p, Coordonnee positionActuelle, int* Marque){
-    Coordonnee* suivants =  pos_suiv(p,positionActuelle);
+    Coordonnee* suivants =  pos_suiv(p,positionActuelle,1);
 	return  ((suivants[0].num_col==-1 || Marque[0]==1)
 	      && (suivants[1].num_col==-1 || Marque[1]==1)
 		  && (suivants[2].num_col==-1 || Marque[2]==1)
@@ -10,9 +11,10 @@ int toutMarque(Problem * p, Coordonnee positionActuelle, int* Marque){
 }
 
 /** Permet d’obtenir le parcours demandé par un probléme à l’aide d’un algorithme de parcours en largeur.
- *@author Salandini Steven
- *@param m, le problème contenant les sommets de départ/de fin et la map->
- *@return chemin la pile contenant les sommets constituants le parcours
+ * ATTENTION : Le programme envoi une Pile_Vide
+ * \author Salandini Steven
+ * \param m, le problème contenant les sommets de départ/de fin et la map->
+ * \return chemin la pile contenant les sommets constituants le parcours
  *         null si aucun chemin possible
  */
 Pile parcours_largeur(Problem * p){
@@ -37,7 +39,7 @@ Pile parcours_largeur(Problem * p){
             return chemin;
         }
 
-        suivants = pos_suiv(p,positionActuelle);
+        suivants = pos_suiv(p,positionActuelle,1);
 
         for(numU=0, DegreExt = 0; numU<4 ;numU++) {
             suivant = suivants[numU];

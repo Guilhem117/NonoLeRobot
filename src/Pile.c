@@ -1,29 +1,28 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "Pile.h"
+#include "position.h"
 
 /** Fonction qui intialise une pile
- * @return une pile avec un element null
- * @author Guilhem SERENE
+ * \return une pile avec un element null
+ * \author Guilhem SERENE
  */
 Pile init_pile() {
 
-    Pile * pile;
+    Pile pile;
 
-    pile = (Pile*) malloc(sizeof(pile));
+    pile.element = NULL; //TODO a revoir
 
-    pile->element = NULL; //TODO a revoir
+    pile.suivant = NULL; //TODO a revoir
 
-    pile->suivant = NULL; //TODO a revoir
-
-    return *pile;
+    return pile;
 }
 
 /** Permet d'ajouter un element à une pile
  * ATTENTION, INTERDIT d'ajouter NULL
- * @param p, la pile à ajouter l'element
- * @param element à ajouter
- * @author Guilhem SERENE & Jordan PRADEL
+ * \param p, la pile à ajouter l'element
+ * \param element à ajouter
+ * \author Guilhem SERENE & Jordan PRADEL
  */
 void ajout_elem(Pile* p, void * element) {
 
@@ -50,15 +49,15 @@ void ajout_elem(Pile* p, void * element) {
         aAjouter->suivant = p->suivant; // la pile actuelle
         p->element = element; // l'élément de la pile actuelle prend la valeur du paramètre élément
         p->suivant = aAjouter; // on insère la pile copie en dessous de la pile actuelle
-
+    //printf("(%d;%d)\n", ((Coordonnee*)aAjouter->element)->num_ligne, ((Coordonnee*)aAjouter->element)->num_col);
     }
 
 }
 
 /** Permet de retirer un element de la pile
  * Si la pile est vide, rien ne change
- * @param  la pile où il faut enlever le sommet
- * @author Guilhem SERENE & Jordan PRADEL
+ * \param  la pile où il faut enlever le sommet
+ * \author Guilhem SERENE & Jordan PRADEL
  */
 void retirer_elem(Pile * p) {
 
@@ -76,10 +75,10 @@ void retirer_elem(Pile * p) {
 }
 
 /** Permet d'inverser la pile le fond de la pile devient la tete
- * @param p, la pile à inverser
- * @return la pile inversée
+ * \param p, la pile à inverser
+ * \return la pile inversée
  *         si elle est vide, NULL est renvoyé
- * @author Guilhem SERENE
+ * \author Guilhem SERENE
  */
 Pile * inverser(Pile p) {
 
@@ -103,10 +102,10 @@ Pile * inverser(Pile p) {
 }
 
 /** Connaitre la taille d'une pile
- * @param  p, la pile à calculer
- * @return La taille de la pile
+ * \param  p, la pile à calculer
+ * \return La taille de la pile
  *         0 si la pile est vide
- * @author Guilhem SERENE
+ * \author Guilhem SERENE
  */
 int taille_pile(Pile p) {
 
@@ -128,20 +127,23 @@ int taille_pile(Pile p) {
 }
 
 /** Permet de tester si la pile est vide
- * @param p, la pile à tester
- * @return 1 si la pile est vide
+ * \param p, la pile à tester
+ * \return 1 si la pile est vide
  *         0 si la pile n'est pas vide
- * @author Guilhem SERENE
+ * \author Guilhem SERENE
  */
 int pile_vide(Pile p) {
     return (p.element == NULL);
 }
 
 /**
- * Affiche les éléments d'une Pile
- * @author Jordan PRADEL
+ * Affiche les éléments d'une Pile de Coordonnées
+ * \author Jordan PRADEL
  */
-void afficherPileEntiers(Pile * p) {
+void afficher_pile_coordonnees(Pile * p) {
+    if (p->element == NULL) {
+        return;
+    }
     Pile * temp; // Pile temporaire
     temp = (Pile *)malloc(sizeof(Pile)); // Allocation d'espace mémoire
     // On copie les données de la Pile p dans la Pile temp
@@ -153,44 +155,38 @@ void afficherPileEntiers(Pile * p) {
         if (temp->suivant->element == NULL) {
             return;
         }
-        printf("%d\n", *(int*)temp->element);
+        printf("(%d;%d)\n", ((Coordonnee*)temp->element)->num_ligne, ((Coordonnee*)temp->element)->num_col);
+        // Passage à l'élément suivant
+        temp->element = temp->suivant->element;
+        temp->suivant = temp->suivant->suivant;
+    }
+
+    // On n'oublie pas d'afficher le dernier élément
+    printf("(%d;%d)\n", ((Coordonnee*)temp->element)->num_ligne, ((Coordonnee*)temp->element)->num_col);
+}
+
+/**
+ * Affiche les éléments d'une Pile d'entiers
+ * \author Jordan PRADEL
+ */
+void afficher_pile_entiers(Pile * p) {
+    Pile * temp; // Pile temporaire
+    temp = (Pile *)malloc(sizeof(Pile)); // Allocation d'espace mémoire
+    // On copie les données de la Pile p dans la Pile temp
+    temp->element = p->element;
+    temp->suivant = p->suivant;
+
+    // On dépile jusqu'au dernier élément de la Pile
+    while (temp->suivant != NULL) {
+        if (temp->suivant->element == NULL) {
+            return;
+        }
+        printf("(%d;%d)\n", *(int*)temp->element, *(int*)temp->element);
         // Passage à l'élément suivant
         temp->element = temp->suivant->element;
         temp->suivant = temp->suivant->suivant;
     }
     // On n'oublie pas d'afficher le dernier élément
-    printf("%d\n", *(int*)temp->element);
+    printf("(%d;%d)\n", *(int*)temp->element, *(int*)temp->element);
     free(temp); // On libère l'espace mémoire utilisé par temp
-}
-
-/**
- * Tests des fonctions d'initialisation, d'ajout, d'affichage et de retrait
- * @author Jordan PRADEL & Guilhem SERENE
- */
-void testPile() {
-
-    Pile p;
-    int i=7, j=8, x=9, l=10, y=11;
-    p = init_pile();
-    ajout_elem(&p, &i);
-    ajout_elem(&p, &j);
-    ajout_elem(&p, &x);
-    ajout_elem(&p, &l);
-    ajout_elem(&p, &y);
-    afficherPileEntiers(&p);
-    retirer_elem(&p);
-    printf("\n");
-    afficherPileEntiers(&p);
-    retirer_elem(&p);
-    printf("\n");
-    afficherPileEntiers(&p);
-    retirer_elem(&p);
-    printf("\n");
-    afficherPileEntiers(&p);
-    retirer_elem(&p);
-    printf("\n");
-    afficherPileEntiers(&p);
-    retirer_elem(&p);
-    printf("\n");
-    afficherPileEntiers(&p);
 }

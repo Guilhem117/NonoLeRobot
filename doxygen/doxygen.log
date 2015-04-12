@@ -1,0 +1,60 @@
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Largeur.c:13: warning: argument 'm' of command @param is not found in the argument list of parcours_largeur(Problem *p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Largeur.c:13: warning: argument 'le' of command @param is not found in the argument list of parcours_largeur(Problem *p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Largeur.c:13: warning: argument 'm' of command @param is not found in the argument list of parcours_largeur(Problem *p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Largeur.c:13: warning: argument 'le' of command @param is not found in the argument list of parcours_largeur(Problem *p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Largeur.c:13: warning: The following parameters of parcours_largeur(Problem *p) are not documented:
+  parameter 'p'
+C:/Users/Guilhem/Documents/NonoLeRobot-master/include/Algorithme.h:19: warning: argument 'le' of command @param is not found in the argument list of parcours_profondeur_R(Problem p, Pile chemin, char *marques)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/include/Algorithme.h:19: warning: The following parameters of parcours_profondeur_R(Problem p, Pile chemin, char *marques) are not documented:
+  parameter 'chemin'
+  parameter 'marques'
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/File.c:30: warning: The following parameters of AjouterElemF(File *cible, void *Elem) are not documented:
+  parameter 'Elem'
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/File.c:84: warning: argument 'la' of command @param is not found in the argument list of supprimerFile(File *aSupprimer)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/File.c:84: warning: The following parameters of supprimerFile(File *aSupprimer) are not documented:
+  parameter 'aSupprimer'
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/File.c:30: warning: The following parameters of AjouterElemF(File *cible, void *Elem) are not documented:
+  parameter 'Elem'
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Largeur.c:13: warning: argument 'm' of command @param is not found in the argument list of parcours_largeur(Problem *p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Largeur.c:13: warning: argument 'le' of command @param is not found in the argument list of parcours_largeur(Problem *p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Largeur.c:13: warning: The following parameters of parcours_largeur(Problem *p) are not documented:
+  parameter 'p'
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Pile.c:21: warning: argument 'la' of command @param is not found in the argument list of ajout_elem(Pile *p, void *element)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Pile.c:77: warning: argument 'la' of command @param is not found in the argument list of inverser(Pile p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Pile.c:129: warning: argument 'la' of command @param is not found in the argument list of pile_vide(Pile p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Pile.c:57: warning: argument 'la' of command @param is not found in the argument list of retirer_elem(Pile *p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Pile.c:57: warning: The following parameters of retirer_elem(Pile *p) are not documented:
+  parameter 'p'
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Pile.c:104: warning: argument 'la' of command @param is not found in the argument list of taille_pile(Pile p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/include/Pile.h:13: warning: argument 'la' of command @param is not found in the argument list of ajout_elem(Pile *p, void *element)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/include/Pile.h:28: warning: argument 'la' of command @param is not found in the argument list of inverse(Pile p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Pile.c:129: warning: argument 'la' of command @param is not found in the argument list of pile_vide(Pile p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Pile.c:129: warning: argument 'la' of command @param is not found in the argument list of pile_vide(Pile p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/include/Pile.h:21: warning: argument 'la' of command @param is not found in the argument list of retirer_elem(Pile *p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/include/Pile.h:21: warning: The following parameters of retirer_elem(Pile *p) are not documented:
+  parameter 'p'
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Pile.c:104: warning: argument 'la' of command @param is not found in the argument list of taille_pile(Pile p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Pile.c:104: warning: argument 'la' of command @param is not found in the argument list of taille_pile(Pile p)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/position.c:96: warning: argument 'p' of command @param is not found in the argument list of calcul_distance(Coordonnee a, Coordonnee b)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/position.c:96: warning: argument 'tab' of command @param is not found in the argument list of calcul_distance(Coordonnee a, Coordonnee b)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/position.c:96: warning: The following parameters of calcul_distance(Coordonnee a, Coordonnee b) are not documented:
+  parameter 'a'
+  parameter 'b'
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/position.c:6: warning: argument 'Le' of command @param is not found in the argument list of obstacle(Problem *p, Coordonnee *position)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/position.c:20: warning: argument 'Le' of command @param is not found in the argument list of pos_suiv(Problem *p, Coordonnee pos_actuelle, int optimisation)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/position.c:20: warning: argument 'position' of command @param is not found in the argument list of pos_suiv(Problem *p, Coordonnee pos_actuelle, int optimisation)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/position.c:20: warning: The following parameters of pos_suiv(Problem *p, Coordonnee pos_actuelle, int optimisation) are not documented:
+  parameter 'pos_actuelle'
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/position.c:96: warning: argument 'p' of command @param is not found in the argument list of calcul_distance(Coordonnee a, Coordonnee b)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/position.c:96: warning: argument 'tab' of command @param is not found in the argument list of calcul_distance(Coordonnee a, Coordonnee b)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/include/position.h:25: warning: argument 'Le' of command @param is not found in the argument list of obstacle(Problem *p, Coordonnee *position)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/position.c:20: warning: argument 'Le' of command @param is not found in the argument list of pos_suiv(Problem *p, Coordonnee pos_actuelle, int optimisation)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/position.c:20: warning: argument 'position' of command @param is not found in the argument list of pos_suiv(Problem *p, Coordonnee pos_actuelle, int optimisation)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/position.c:20: warning: argument 'Le' of command @param is not found in the argument list of pos_suiv(Problem *p, Coordonnee pos_actuelle, int optimisation)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/position.c:20: warning: argument 'position' of command @param is not found in the argument list of pos_suiv(Problem *p, Coordonnee pos_actuelle, int optimisation)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/position.c:20: warning: The following parameters of pos_suiv(Problem *p, Coordonnee pos_actuelle, int optimisation) are not documented:
+  parameter 'pos_actuelle'
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Profondeur.c:4: warning: argument 'le' of command @param is not found in the argument list of parcours_profondeur_R(Problem p, Pile chemin, char *marques)
+C:/Users/Guilhem/Documents/NonoLeRobot-master/src/Profondeur.c:4: warning: The following parameters of parcours_profondeur_R(Problem p, Pile chemin, char *marques) are not documented:
+  parameter 'chemin'
+  parameter 'marques'

@@ -3,7 +3,7 @@
 
 /**
  * Initialise une file
- * @return une file vide
+ * \return une file vide
  */
 File init_File() {
 
@@ -18,8 +18,8 @@ File init_File() {
 
 /**
  *Indique si une file est vide
- *@param aTester la file a tester
- *@return 1 si la file est vide
+ *\param aTester la file a tester
+ *\return 1 si la file est vide
  *        0 sinon
  */
 int FileVide(File aTester){
@@ -28,9 +28,9 @@ int FileVide(File aTester){
 
 /**
  *Ajoute un element en queue de la file donnée
- *@param cible un pointeur sur la file a incrémentée
+ *\param cible un pointeur sur la file a incrémentée
  *       Elem la donnée a stocker
- *@return File la nouvelle file
+ *\return File la nouvelle file
  */
 File AjouterElemF(File* cible, void* Elem){
     chainonF* aAjouter;
@@ -51,8 +51,8 @@ File AjouterElemF(File* cible, void* Elem){
 
 /**
  *Retire un element en tête de la file donnée et retourne sa valeur
- *@param cible un pointeur sur la cible dont on veut la tête
- *@return NULL si la file est vide
+ *\param cible un pointeur sur la cible dont on veut la tête
+ *\return NULL si la file est vide
  *        la valeur associé au chainon en tête sinon
  */
 
@@ -82,8 +82,8 @@ void* RetirerElemF(File* cible){
 
 /**
  * Permet de supprimer une file vide
- * @param la file vide a supprimer
- * @return 0 si la file a été supprimer
+ * \param la file vide a supprimer
+ * \return 0 si la file a été supprimer
  *         -1 sinon (file non vide
  */
 int supprimerFile(File* aSupprimer){
