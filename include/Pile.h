@@ -14,21 +14,16 @@ Pile init_pile();
  * ATTENTION, INTERDIT d'ajouter NULL
  * @param p, la pile à ajouter l'element
  * @param element à ajouter
+ * @author Guilhem SERENE & Jordan PRADEL
  */
 void ajout_elem(Pile* p, void * element);
 
 /** Permet de retirer un element de la pile
- * On ne peut pas enlever un element si la pile est vide
+ * Si la pile est vide, rien ne change
  * @param  la pile où il faut enlever le sommet
+ * @author Guilhem SERENE & Jordan PRADEL
  */
 void retirer_elem(Pile * p);
-
-/** Renvoit le sommet de la pile
- * @param p, la pile contenant l'element
- * @return l'element du sommet de la pile
- *         NULL si l'element est le dernier de ma pile
- */
-void * sommet(Pile p);
 
 /** Permet d'inverser la pile le fond de la pile devient la tete
  * @param p, la pile à inverser
@@ -50,3 +45,15 @@ int taille_pile(Pile p);
  *         0 si la pile n'est pas vide
  */
 int pile_vide(Pile p);
+
+/**
+ * Affiche les éléments d'une Pile
+ * @author Jordan PRADEL
+ */
+void afficherPileEntiers(Pile * p);
+
+/**
+ * Tests des fonctions d'initialisation, d'ajout, d'affichage et de retrait
+ * @author Jordan PRADEL & Guilhem SERENE
+ */
+void testPile();

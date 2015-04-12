@@ -18,13 +18,18 @@ int main() {
         lire_fichier(file,&probleme);
         Affiche_matrice(&probleme);
 
-        //$START NewCode
-        chemin = parcours_profondeur(probleme);
+        char *marques;
+        ajout_elem(&chemin, &probleme.depart);
+        marques = (char *) malloc(probleme.nb_colonne * probleme.nb_ligne * sizeof(char));
+        chemin = parcours_profondeur_R(probleme, chemin, marques);
         afficher_chemin(chemin);
-        //$END NewCode
+
+//        chemin = parcours_profondeur(probleme);
+//        afficher_chemin(chemin);
 
         libere_matrice(&probleme);
     }
+
     return 0;
 }
 
@@ -37,7 +42,7 @@ void lire_fichier(FILE *f, Problem *p) {
     fscanf(f,"%i\n",&p->nb_colonne);
     p->carte = (char **) malloc(sizeof(char *)*p->nb_ligne);
     if(p->carte==NULL) {
-        printf("\nallocation impossible, pas assez de mémoire\n");
+        printf("\nallocation impossible, pas assez de mÃ©moire\n");
         exit (1);
         }
     else {
@@ -45,7 +50,7 @@ void lire_fichier(FILE *f, Problem *p) {
         for (i = 0; i < p->nb_ligne; i++) {
             p->carte[i] = (char*)malloc(sizeof(char)*p->nb_colonne);
             if (p->carte[i]==NULL) {
-                printf("\nallocation impossible, pas assez de mémoire\n");
+                printf("\nallocation impossible, pas assez de mÃ©moire\n");
                 exit (1);
                 }
             }
@@ -56,7 +61,7 @@ void lire_fichier(FILE *f, Problem *p) {
         for(j=0; j< p->nb_colonne; j++) {
             fscanf(f,"%c",&p->carte[i][j]);
             }
-        fscanf(f,"%c",&c);  // enlève le \n
+        fscanf(f,"%c",&c);  // enlÃ¨ve le \n
         }
     }
 void Affiche_matrice(Problem *p) {
@@ -95,4 +100,3 @@ void afficher_chemin(Pile p) {
     }
 
 }
-
