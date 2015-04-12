@@ -30,7 +30,7 @@
 //        //ajout_elem(&chemin, chemin.element);
 //        marques[(*(Coordonnee *)chemin.element).num_ligne][(*(Coordonnee *) chemin.element).num_col] = 1;
 //        Coordonnee aze = *(Coordonnee *)chemin.element;
-//        //printf("test : (%d;%d)\n", aze.num_ligne, aze.num_col);
+//        //printf("EMPIL : (%d;%d)\n", aze.num_ligne, aze.num_col);
 //        suivants = pos_suiv(&p, *(Coordonnee *) chemin.element);
 //        //printf("TAILLE de %d\n", taille_pile(chemin));
 //        //printf("test 2 : (%d;%d) ; (%d;%d) ; (%d;%d) ; (%d;%d)", suivants[0].num_ligne,suivants[0].num_col,suivants[1].num_ligne,suivants[1].num_col,suivants[2].num_ligne,suivants[2].num_col,suivants[3].num_ligne,suivants[3].num_col);
@@ -90,14 +90,30 @@ Pile parcours_profondeur_R(Problem p, Pile chemin, char *marques) {
             if (!obstacle(&p, &suivants[i])
                 && marques[suivants[i].num_ligne * p.nb_colonne + suivants[i].num_col] == 0) {
                 ajout_elem(&chemin, &suivants[i]);
+                Coordonnee aze = *(Coordonnee *)chemin.element;
+                printf("EMPIL : (%d;%d)\n", aze.num_ligne, aze.num_col);
+                    system("clear");
+
+                    for(int i=0, j; i < p.nb_ligne; i++) {
+
+                        for(j=0; j < p.nb_colonne; j++) {
+                            printf("%c", marques[i * p.nb_colonne + j]== 0 ? ' ': '*');
+                        }
+
+                        printf("\n");
+
+                    }
+
                 return parcours_profondeur_R(p,chemin,marques);
             }
         }
 
         //Il n'ya pas de suivants
+        retirer_elem(&chemin);
+        Coordonnee azr = *(Coordonnee *)chemin.element;
+        printf("DEPIL : (%d;%d)\n", azr.num_ligne, azr.num_col);
+        return parcours_profondeur_R(p,chemin,marques);
 
-            retirer_elem(&chemin);
-            return parcours_profondeur_R(p,chemin,marques);
     }
 
     return chemin;

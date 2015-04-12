@@ -10,8 +10,8 @@
  *         0 sinon
  */
 int obstacle(Problem *p, Coordonnee * position) {
-    if (position->num_ligne <= 0 || position->num_ligne >= p->nb_ligne
-     || position->num_col <= 0 || position->num_col >= p->nb_colonne) return 1;
+    if (position->num_ligne < 0 || position->num_ligne >= p->nb_ligne
+     || position->num_col < 0 || position->num_col >= p->nb_colonne) return 1;
     return p->carte[position->num_ligne][position->num_col] != ' ';
 }
 
@@ -26,11 +26,13 @@ int obstacle(Problem *p, Coordonnee * position) {
  */
 Coordonnee *pos_suiv(Problem *p, Coordonnee posActuelle) {
     Coordonnee * c, * possibles;
+
+
     possibles = (Coordonnee *)malloc(sizeof(Coordonnee));
     c = (Coordonnee *)malloc(sizeof(Coordonnee));
 
     // Déplacement à haut
-    c->num_ligne = (posActuelle.num_ligne)-1,
+    c->num_ligne = posActuelle.num_ligne-1,
     c->num_col = posActuelle.num_col;
     if (!obstacle(p, c)) {
         possibles[0] = *c;
@@ -38,20 +40,20 @@ Coordonnee *pos_suiv(Problem *p, Coordonnee posActuelle) {
 
     // Déplacement en droite
     c->num_ligne = posActuelle.num_ligne,
-    c->num_col = (posActuelle.num_col)+1;
+    c->num_col = posActuelle.num_col+1;
     if (!obstacle(p, c)) {
         possibles[1] = *c;
     }
 
     // Déplacement à bas
-    c->num_ligne = (posActuelle.num_ligne)+1,
+    c->num_ligne = posActuelle.num_ligne+1,
     c->num_col = posActuelle.num_col;
     if (!obstacle(p, c)) {
         possibles[2] = *c;
     }
     // Déplacement en gauche
     c->num_ligne = posActuelle.num_ligne,
-    c->num_col = (posActuelle.num_col)-1;
+    c->num_col = posActuelle.num_col-1;
     if (!obstacle(p, c)) {
         possibles[3] = *c;
     }
@@ -79,7 +81,7 @@ void affiche_marque(Problem p, char **deplacement) {
     for(int i=0, j; i < p.nb_ligne; i++) {
 
         for(j=0; j < p.nb_colonne; j++) {
-            printf("%c", deplacement[i][j]== 0 ? '*': ' ');
+            printf("%c", deplacement[i][j]== 0 ? ' ': '*');
         }
 
         printf("\n");
